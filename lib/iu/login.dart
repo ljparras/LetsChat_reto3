@@ -12,7 +12,6 @@ final email = TextEditingController();
 final password = TextEditingController();
 
 
-
 class _loginState extends State<login> {
   
   @override
@@ -25,6 +24,10 @@ class _loginState extends State<login> {
         padding:  const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image(image: NetworkImage("https://images.pexels.com/photos/1061140/pexels-photo-1061140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")),
+            ),
             TextField(
               controller:  email,
               decoration: InputDecoration(label: Text("Email")),

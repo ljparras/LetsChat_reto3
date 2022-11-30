@@ -21,9 +21,9 @@ Stream<QuerySnapshot> resp_consulta = FirebaseFirestore.instance
     return StreamBuilder(
       stream: resp_consulta,
       builder:
-             (BuildContext context, AsyncSnapshot<QuerySnapshot> respuesta){
-
-        return ListView.builder(
+          (BuildContext context, AsyncSnapshot<QuerySnapshot> respuesta){
+          return respuesta.data?.docs.isEmpty == false
+          ? ListView.builder(
           itemCount: respuesta.data!.docs.length,
           itemBuilder: (BuildContext context, int index) {
             return 
@@ -51,6 +51,9 @@ Stream<QuerySnapshot> resp_consulta = FirebaseFirestore.instance
             
           
           },
+        )
+        : Center(
+          child: CircularProgressIndicator(),
         );
       });
   }

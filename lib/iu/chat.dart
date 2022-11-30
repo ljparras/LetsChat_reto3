@@ -21,7 +21,17 @@ class _chatState extends State<chat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text((autenticacion().usuarios?.email).toString()),
+        title: Row(
+          children: [
+            Text((autenticacion().usuarios?.email).toString()),
+            VerticalDivider(),
+            IconButton(
+              onPressed: (){
+                autenticacion().CerrarSesion();
+              }, 
+              icon: Icon(Icons.logout_rounded)),
+              ],
+            )
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
